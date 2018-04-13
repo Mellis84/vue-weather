@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<Header :title="title" />
+		<router-view />
+		<Search />
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+	import Header from '@/components/Header'
+	import Search from '@/components/Search'
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: 'app',
+		data() {
+			return {
+				title: 'Vue Weather'
+			}
+		},
+		components: {
+			Header,
+			Search
+		}
+	}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+	$baseFontFamily: 'Avenir', Helvetica, Arial, sans-serif;
+
+	#app {
+		font-family: $baseFontFamily;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-align: center;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
 </style>

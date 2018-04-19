@@ -138,6 +138,10 @@
 			.daily-forecast-list {
 				li {
 					padding: 1.5rem 1.5rem 0;
+					
+					&:last-child {
+						padding-bottom: 1.5rem;
+					}
 				}
 			}
 		}

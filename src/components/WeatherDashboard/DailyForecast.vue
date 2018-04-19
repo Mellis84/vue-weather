@@ -44,21 +44,30 @@
 		}
 
 		img {
-			max-width: 5rem;
+			max-width: 4rem;
+		}
+
+		.daily-forecast__day {
+			text-align: left;
+		}
+
+		.daily-forecast__day,
+		.temperature {
+			flex: 1;
 		}
 
 		.temperature {
+			display: flex;
+
 			.temperature__low,
 			.temperature__high {
 				font-size: 1.6rem;
+				flex: 1;
+				text-align: right;
 			}
 
 			.temperature__low {
 				color: rgba(white, 0.5);
-			}
-
-			.temperature__high {
-				margin-right: 2rem;
 			}
 		}
 	}

@@ -49,8 +49,8 @@
 		data() {
 			return {
 				isLoading: true,
-				lat: '55.9533',
-				long: '3.1883',
+				lat: '55.9411289',
+				long: '-3.3454205',
 				weather: []
 			}
 		},
@@ -71,7 +71,7 @@
 			fetchData: async function() {
 				try {
 					const results = await fetch(
-						`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API}/${this.location}?units=uk2`
+						`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API}/${this.location}?units=auto`
 					);
 					const weather = await results.json();
 					this.weather = weather;

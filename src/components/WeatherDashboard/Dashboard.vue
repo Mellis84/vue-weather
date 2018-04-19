@@ -20,7 +20,7 @@
 				>
 			</div>
 			<div class="weather-details__temperatures">
-				<span>{{ weather.temperature }}°</span>
+				<span>{{ roundupTemps(weather.temperature) }}°</span>
 				<span>{{ weather.humidity }}°</span>
 			</div>
 			<router-link to="location/edinburgh" class="weather-details__link">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import { HalfCircleSpinner } from 'epic-spinners'
+	import { HalfCircleSpinner } from 'epic-spinners';
 	const API = 'a1d49c663e7af63a0de24a508e41157d';
 
 	export default {
@@ -40,8 +40,8 @@
 		data() {
 			return {
 				isLoading: true,
-				lat: '55.9533',
-				long: '3.1883',
+				lat: '55.9411289',
+				long: '-3.3454205',
 				weather: {}
 			}
 		},
@@ -60,7 +60,7 @@
 			fetchData: async function() {
 				try {
 					const results = await fetch(
-						`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API}/${this.location}?units=uk2`
+						`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${API}/${this.location}?units=auto`
 					);
 					const weather = await results.json();
 					this.weather = weather.currently;
@@ -68,6 +68,9 @@
 				} catch(e) {
 					console.log(e);
 				}
+			},
+			roundupTemps(temp) {
+				return temp.toFixed();
 			}
 		}
 	}
